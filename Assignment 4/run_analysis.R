@@ -2,6 +2,7 @@
 ##    This script reads data from "Human Activity Recognition Using Smartphones Dataset"
 ##  It creates a Tidy-Data based on training and test datasets
 ##    This an assignment pertaining to Data Specialization course for the Data Cleaning section
+##  Created October 28th 2023
 
 run_analysis<- function(directory = "UCI HAR Dataset") {
 	currpath<- getwd()
