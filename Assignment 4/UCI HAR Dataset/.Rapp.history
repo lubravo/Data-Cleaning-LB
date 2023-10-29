@@ -1,0 +1,255 @@
+x<-rep(0:1, each = 5)
+e<- rnorm(10,0,20)
+y<- 0.5 + 2 * x + e
+y
+library(swirl)
+swirl()
+ls()
+class(plants)
+dim(plants)
+nrow(plants)
+ncol(plants)
+size(plants)
+object.size(plants)
+names(plants)
+head(plants)
+head(plants,10)
+tail(plants,15)
+summary(plants)
+table(plants$Active_Growth_Period)
+str()
+str(palnts)
+str(plants)
+exit
+swirl()
+?sample
+sample(1:6,4,replace = TRUE)
+sample(1:20,6,replace = FALSE)
+sample(1:20,10,replace = FALSE)
+sample(1:20,10)
+LETTERS
+sample(LETTERS)
+sample(c(0,1),100, replace = TRUE)
+flips<-sample(c(0,1),100, replace = TRUE,prob = (0.3,0.7))
+flips<-sample(c(0,1),100, replace = TRUE,prob = c(0.3,0.7))
+flips
+sum(flips)
+?binom
+?rbinom
+rbinom(1,size = 100, prob = 0.7)
+flips2<-rbinom(c(0,1), size = 100, prob = 0.7 )
+flips2<-rbinom(n = 100, size = 100, size = 1, prob = 0.7 )
+flips2<-rbinom(n = 100, size = 1, prob = 0.7 )
+flips2
+sum(flips2)
+?rnorm
+rnorm(10)
+rnorm(100, sd = 25)
+rnorm(10, mean = 100 ,sd = 25)
+?rpois
+rpois(5)
+rpois(5, lambda)
+rpois(5, 10)
+replicate(100, rpois(5,10))
+my_pois<-replicate(100, rpois(5,10))
+my_pois
+cm <- colMeans(my_pois)
+hist(cm)
+data(cars)
+?cars
+head(cars)
+plot(cars)
+?plot
+plot(x = cars$speed,y = cars$dist)
+plot(x = cars$dist, y = cars$speed)
+Speed<-car$speed
+Speed<-cars$speed
+plot(x=car$speed, y = cars$dist, xlab = "Speed")
+plot(x=cars$speed, y = cars$dist, xlab = "Speed")
+plot(x=cars$speed, y = cars$dist, xlab = "Speed", ylab = "Stopping Distance")
+plot(x=cars$speed, y = cars$dist, ylab = "Stopping Distance")
+plot(x=cars$speed, y = cars$dist, xlab = "Speed", ylab = "Stopping Distance")
+plot(cars, main = "My Plot")
+plot(cars, sub = "My Plot Subtitle")
+plot(cars, col = 2)
+plot(cars, xlim = c(10,15))
+?points
+?par
+plot(cars, pch = 2)
+data(mtcars)
+dim(mtcars)
+?boxplot
+boxplot(mpg ~ cyl)
+boxplot(data = mtcars,mpg ~ cyl)
+boxplot(formula = mpg ~ cyl, data = mtcars)
+hist(mtcars$mpg)
+swirl()
+load(swirl)
+library(swirl)
+swirl()
+data(cars)
+?cars
+head(cars)
+plot(cars)
+?plot
+plot(data$speed,data$dist)
+plot(cars$speed,cars$dist)
+plot(cars$dist, cars$speed)
+?plot
+plot(x=cars$speed,y=cars$dist,xlab = "Speed")
+plot(x=cars$speed,y=cars$dist,ylab = "Stopping Distance")
+plot(x=cars$speed,y=cars$dist,xlab = "Speed",ylab = "Stopping Distance")
+plot(cars, main = "My Plot")
+plot(cars, sub = "My Plot Subtitle")
+plot(cars, col = 2)
+plot(cars, xlim = c(10,15))
+plot(cars, pch = 2)
+data(mtcars)
+?boxplot
+boxplot(mtcars, formula = mpg ~ cyl)
+boxplot(formula = mpg ~ cyl, data = mtcars)
+hist(mtcars$mpg)
+ls()
+class(plants)
+dim(plants)
+nrow(plants)
+ncol(plants)
+object.size(plants)
+names(plants)
+head(plants)
+head(plants, 10)
+tail(plants,15)
+summary(plants)
+table(plants$Active_Growth_Period)
+str(plants$Active_Growth_Period)
+str(plants)
+?sample
+sample(1:6, 4, replace = TRUE)
+sample(1:20, 10)
+LETTERS
+sample(LETTERS)
+sample(c(0,1), 100, prob = c(0.3,0.7))
+flips<-sample(c(0,1), 100, prob = c(0.3,0.7), replace = TRUE)
+flips
+sum(flips)
+?rbinom
+rbinom(1, size = 100, prob = 0.7)
+rbinom(c(0,1), size = 100, prob = 0.7)
+rbinom(n = 100, size = 1, prob = 0.7)
+flips2 <- rbinom(n = 100, size = 1, prob = 0.7)
+flips2
+sum(flips2)
+?rnorm
+rnorm(10)
+rnorm(10, sd = 25)
+rnorm(10,mean = 100, sd = 25)
+?rpois
+rpois(5, lambda = 10)
+replicate(100,rpois(5,10))
+my_pois<-replicate(100,rpois(5,10))
+my_pois
+cm<-colMeans(my_pois)
+hist(cm)
+library("dplyr")
+swirl()
+library("swirl")
+swirl()
+library(dplyr)
+library(swirl)
+swirl()
+library(tidyr)
+students
+?gather
+gather(students,sex,count,-grade)
+students2
+res<-gather(students2,sex_class,count,-grade)
+res
+?separate
+separate(data=res,col=sex_class,intoc("sex","class"))
+separate(data=res,col=sex_class,into("sex","class"))
+separate(data=res,col=sex_class,into= c("sex","class"))
+submit()
+students3
+submit()
+?spread
+submit()
+library(readr)
+parse_number("class5")
+submit()
+reset()
+swirl()
+submit()
+reset()
+students3 %>%#
+  gather(class, grade, class1:class5, na.rm = TRUE) %>%#
+  spread(test, grade) %>% mutate(class = parse_number(class))#
+  ### Call to mutate() goes here %>%
+swirl()
+submit()
+students3 %>%#
+  gather(class, grade, class1:class5, na.rm = TRUE) %>%#
+  spread(test, grade) %>% mutate(class = parse_number(class))
+library("swirl")
+swirl()
+Sys.getlocale("LC_TIME")
+library(lubridate)
+help(package = lubridate)
+today()
+this_day <- today()
+this_day
+year(this_day)
+wday(this_day)
+wday(this_day,label = TRUE)
+this_moment <- now()
+this_moment
+second(this_moment)
+ymd("1989-05-17")
+my_date <- ymd("1989-05-17")
+my_date
+class(my_date)
+ymd("1989 May 17")
+mdy("March 12, 1975")
+dmy(25081985)
+ymd("192012")
+ymd("1920-1-2")
+dt1
+dt1_parsed <- ymd_hms(dt1)
+dt1_parsed
+class(dt1_parsed)
+hms("03:22:14")
+dt2
+ymd(dt2)
+update(this_moment, hours = 8, minutes = 34, seconds = 55)
+this_moment
+this_moment <- update(this_moment, hours = 7, minutes = 46)
+this_moment
+?now
+nyc<-now(tzone = "America/New_York")
+nyc
+depart<- nyc + days(2)
+depart
+depart<- update(depart, hours = 17, minutes = 34)
+depart
+arrive<- nyc + hours(15) + minutes(50)
+arrive<- depart + hours(15) + minutes(50)
+?with_tz
+arrive<- with_tz(arrive,tzone = "Asia/Hong_Kong")
+arrive
+last_time<-mdy("June 17, 2008", tz = "Singapore")
+last_time
+?interval
+how_long<-interval(last_time, arrive)
+how_long
+as.period(how_long)
+stopwatch()
+feats<-read.table("features.txt")
+str(feats)
+head(feats)
+head(feats, n = 15)
+x_train_set <- read.table("train/X_train.txt")
+str(x_train_set)
+rm("x_train_set")
+total_acc_x_train<-read.table("train/Inertial Signals/total_acc_x_train.txt")
+str(total_acc_x_train)
+rm("total_acc_x_train")
+rm("x_train_set")

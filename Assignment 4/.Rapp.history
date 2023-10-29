@@ -1,0 +1,255 @@
+?plot
+plot(x=cars$speed,y=cars$dist,xlab = "Speed")
+plot(x=cars$speed,y=cars$dist,ylab = "Stopping Distance")
+plot(x=cars$speed,y=cars$dist,xlab = "Speed",ylab = "Stopping Distance")
+plot(cars, main = "My Plot")
+plot(cars, sub = "My Plot Subtitle")
+plot(cars, col = 2)
+plot(cars, xlim = c(10,15))
+plot(cars, pch = 2)
+data(mtcars)
+?boxplot
+boxplot(mtcars, formula = mpg ~ cyl)
+boxplot(formula = mpg ~ cyl, data = mtcars)
+hist(mtcars$mpg)
+ls()
+class(plants)
+dim(plants)
+nrow(plants)
+ncol(plants)
+object.size(plants)
+names(plants)
+head(plants)
+head(plants, 10)
+tail(plants,15)
+summary(plants)
+table(plants$Active_Growth_Period)
+str(plants$Active_Growth_Period)
+str(plants)
+?sample
+sample(1:6, 4, replace = TRUE)
+sample(1:20, 10)
+LETTERS
+sample(LETTERS)
+sample(c(0,1), 100, prob = c(0.3,0.7))
+flips<-sample(c(0,1), 100, prob = c(0.3,0.7), replace = TRUE)
+flips
+sum(flips)
+?rbinom
+rbinom(1, size = 100, prob = 0.7)
+rbinom(c(0,1), size = 100, prob = 0.7)
+rbinom(n = 100, size = 1, prob = 0.7)
+flips2 <- rbinom(n = 100, size = 1, prob = 0.7)
+flips2
+sum(flips2)
+?rnorm
+rnorm(10)
+rnorm(10, sd = 25)
+rnorm(10,mean = 100, sd = 25)
+?rpois
+rpois(5, lambda = 10)
+replicate(100,rpois(5,10))
+my_pois<-replicate(100,rpois(5,10))
+my_pois
+cm<-colMeans(my_pois)
+hist(cm)
+library("dplyr")
+swirl()
+library("swirl")
+swirl()
+library(dplyr)
+library(swirl)
+swirl()
+library(tidyr)
+students
+?gather
+gather(students,sex,count,-grade)
+students2
+res<-gather(students2,sex_class,count,-grade)
+res
+?separate
+separate(data=res,col=sex_class,intoc("sex","class"))
+separate(data=res,col=sex_class,into("sex","class"))
+separate(data=res,col=sex_class,into= c("sex","class"))
+submit()
+students3
+submit()
+?spread
+submit()
+library(readr)
+parse_number("class5")
+submit()
+reset()
+swirl()
+submit()
+reset()
+students3 %>%#
+  gather(class, grade, class1:class5, na.rm = TRUE) %>%#
+  spread(test, grade) %>% mutate(class = parse_number(class))#
+  ### Call to mutate() goes here %>%
+swirl()
+submit()
+students3 %>%#
+  gather(class, grade, class1:class5, na.rm = TRUE) %>%#
+  spread(test, grade) %>% mutate(class = parse_number(class))
+library("swirl")
+swirl()
+Sys.getlocale("LC_TIME")
+library(lubridate)
+help(package = lubridate)
+today()
+this_day <- today()
+this_day
+year(this_day)
+wday(this_day)
+wday(this_day,label = TRUE)
+this_moment <- now()
+this_moment
+second(this_moment)
+ymd("1989-05-17")
+my_date <- ymd("1989-05-17")
+my_date
+class(my_date)
+ymd("1989 May 17")
+mdy("March 12, 1975")
+dmy(25081985)
+ymd("192012")
+ymd("1920-1-2")
+dt1
+dt1_parsed <- ymd_hms(dt1)
+dt1_parsed
+class(dt1_parsed)
+hms("03:22:14")
+dt2
+ymd(dt2)
+update(this_moment, hours = 8, minutes = 34, seconds = 55)
+this_moment
+this_moment <- update(this_moment, hours = 7, minutes = 46)
+this_moment
+?now
+nyc<-now(tzone = "America/New_York")
+nyc
+depart<- nyc + days(2)
+depart
+depart<- update(depart, hours = 17, minutes = 34)
+depart
+arrive<- nyc + hours(15) + minutes(50)
+arrive<- depart + hours(15) + minutes(50)
+?with_tz
+arrive<- with_tz(arrive,tzone = "Asia/Hong_Kong")
+arrive
+last_time<-mdy("June 17, 2008", tz = "Singapore")
+last_time
+?interval
+how_long<-interval(last_time, arrive)
+how_long
+as.period(how_long)
+stopwatch()
+library(dplyr)
+feats<-read.table("features.txt")
+x_train_set<-read.table("train/X_train.txt")
+names(x_train_set)<-feats$V2
+head(x_train_set)
+names(x_train_set)
+tail(x_train_set)
+act_levls<-read.table("activity_labels.txt")
+y_train_lbls<-read.table("train/y_train.txt")
+act_levls
+head(y_train_lbls)
+test<-cbind(x_train_set,y_train_lbls)
+head(test)
+tail(test)
+act_levls
+head(y_test_lbls)
+head(y_train_lbls)
+test<-factor(y_train_lbls$V1,labels = act_levls$V2)
+head(test)
+test
+act_levls
+tail(y_train_set)
+tail(y_train_lbls)
+tail(test)
+head(test)
+head(y_train_lbls)
+rm("test")
+y_train_lbls<-factor(y_train_lbls$V1,labels = act_levls$V2)
+head(y_train_lbls)
+y_train_lbls
+cbind(y_train_lbls,x_train_set)
+head(y_train_lbls)
+tail(x_train_set)
+head(cbind(y_train_lbls,x_train_set))
+head(cbind(y_train_lbls$V1,x_train_set))
+head(cbind(y_train_lbls[1,],x_train_set))
+class(y_train_lbls)
+x_train_set %>% mutate(activity = y_train_lbls)
+x_train_set$activity
+x_train_set %>% mutate(act = y_train_lbls)
+x_train_set %>% mutate(act = y_train_lbls)
+x_train_set %>% mutate(act = y_train_lbls$V1)
+y_train_lblsV1
+names(y_train_lbls)
+y_train_lbls
+x_train_set %>% left_join(y_train_lbls)
+as.character(y_train_lbls)
+test<-as.character(y_train_lbls)
+test
+class(test)
+x_train_set %>% left_join(activity = test)
+x_train_set %>% left_join(test)
+rbind(test,x_train_set)
+head(x_train_set)
+head(rbind(test,x_train_set))
+head(cbind(test,x_train_set))
+last(cbind(test,x_train_set))
+head(cbind(test,x_train_set))
+test2 <-cbind(test,x_train_set)
+names(test2)
+head(tes2$test)
+head(test2$test)
+last(test2$test)
+length(test2$test)
+last(test2$test)
+last(test2$test, n = 10)
+tail(test2$test, n = 10)
+names(x_train_set)
+activity<-as.character(y_train_lbls)
+x_train_set <-cbind(activity,x_train_set)
+names(x_train_set)
+head(x_train_set)
+head(x_train_set$activity)
+tail(x_train_set$activity)
+x_test_set<-read.table("test/X_test.txt")
+x_test_set
+str(x_test_set)
+head(cbind(set_type = "train",x_train_set))
+x_train_set<-cbind(set_type = "train",x_train_set)
+head(x_train_set$set_type)
+getwd(0)
+getwd()
+subject_label<-read.table("train/subject_train.txt")
+getwd()
+subject_label<-read.table("UCI HAR Dataset/train/subject_train.txt")
+str(subject_label)
+str(subject_label)
+subject_label<-read.table("UCI HAR Dataset/train/subject_train.txt")
+subject
+subject_label
+subject_label<-read.table("train/subject_train.txt")
+getwd()
+subject_label<-read.table("/Users/lubravo19/Documents/Labinfo/Cousera trainings/DS specialization/Assignment 4/UCI HAR Dataset/train/subject_train.txt")
+cbind(subject_label,x_training_set)
+cbind(subject_label,x_train_set)
+head(cbind(subject_label,x_train_set))
+subject_label
+head(subject_label)
+class(subject_label$V1)
+head(cbind(subject_label,x_train_set))
+names(cbind(subject_label,x_train_set))
+names(cbind(subject=subject_label$V1,x_train_set))
+head(cbind(subject=subject_label$V1,x_train_set))
+getwd()
+in_tot_acc_x<-read.table("UCI HAR Dataset/total_acc_x_test.txt")
+in_tot_acc_x<-read.table("UCI HAR Dataset/test/Inertial Signals/total_acc_x_test.txt")
+str(in_tot_acc_x)
+str(subject_label)
