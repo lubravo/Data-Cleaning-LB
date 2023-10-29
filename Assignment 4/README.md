@@ -5,45 +5,24 @@ link to the original data:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 ## Data Layout and description
 
-
-The files located at the first level are:
-
- Codebook Data Cleaning.Rmd being this current file
- Codebook Data Cleaning.html being the web based version of this current file.
- 
- activity_labels.txt - it contains the list of descriptive activities performed 
- by the subjects of the experiments (6 rows)
- 
- features_info.txt - Includes the explanation of the experiment variables collected
- 
- features.txt - Contains all the variables collected during the experiment (561 Observations)
- 
- README.txt - Original description of the experiment written by the Human Activity Recognition team.
- 
- Subdirectory train and contains the following files:
- 
- 
-  X_train.txt - Contains the experiment data captured based on the experiment variables (7352 Observations on 561 values)
+  ## Analysis performed by the run_analysis.R script
   
-  y_train.txt - it contains the numeric id of all the observation data (7352 Observations)
+  The script creates a function named run_analysis that receives a parameter named directory that is used to set the correct path of all the files needed.
   
-  Subdirectory test and contains the following files:
- 
- 
-  X_test.txt - Contains the experiment data captured based on the test experiment variables (7352 Observations on 561 values)
+   Then it reads the activity_labels.txt file and stores it in a dataframe
+   It also reads the features.txt file and stores it in another dataframe
+  1. I also read the test files X_test.txt and y_test.txt and places them in their own dataframes
+  2.  After that I read the subject_test.txt file into an additional dataframe
+   
+  3. Then I take the second column of the activity label dataframe and turn it into factors for the test label set data. This matches the test labels with their full activity description.
+   
+  4. I used the subject data and merge it with the main data set (read from the X_test.txt file) into a new dataframe then i added the activity and description values as the first columns of the data frame
+  5. And finally I added and additional column named "set_type" with constant value of "test" to all observations of the resulting merged test dataframe
   
-  y_test.txt - it contains the numeric id of all the test observation data (7352 Observations)
+  I repeat steps 1 - 5 for the train data set.
   
-  There is another set subdirectories under the train and test subdirectories named "Inertial Signs" and I used the following files for the assignment:
+  I merged the train and test data set into a bigger datframe
   
-   subject_test.txt - Contains the numeric identifier of the test experiment volunteers (7352 Observations). location: test/subject_test.txt
-  subject_train.txt - Contains the numeric identifier of the experiment volunteers (7352 Observations). location: test/subject_train.txt
-  
-  There another set of files named body_acc...txt and total_acc_...txt that i did not use
-  for the assignment.
-  
-  I also added an additional subdirectory named "TidyData files" that contains two files:
-  
-  assgn4_tidy_data1.csv - that contains the data pertaining to the first tidy data set requested as part of the assignment (7352 Observations)
-  assgn4_tidy_data2.csv - that contains the data pertaining to the second tidy data set requested as part of the assignment (7352 Observations)
+  Then I filter the columns set_type,activity,subject and all columns that calculate the mean and standard deviation from all the variables calculated during the experiment into a final data frame for the first tidy data set. Then I write the results to a file named assgn4_tidy_data1.csv.
+  For the second tidy data set I filter the activiy, subject and mean related variables from the first tidy data set into a the second tidy data set dataframe and I write it to a file named assgn4_tidy_data2.csv
   
